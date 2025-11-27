@@ -42,16 +42,16 @@
 
 <body>
 
-    <!-- NAVBAR (Bootstrap hamburger menu + search bar) -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-50 px-3">
         <a class="navbar-brand text-white fw-bold" href="#">YOUR LOGO</a>
 
-        <!-- HAMBURGER -->
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- LEFT MENU ITEMS -->
+
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
@@ -60,7 +60,7 @@
                 <li class="nav-item"><a class="nav-link text-white" href="#">Login</a></li>
             </ul>
 
-            <!-- RIGHT SIDE SEARCH BAR -->
+
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search city...">
                 <button class="btn btn-light" type="button">Search</button>
@@ -68,11 +68,11 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT AREA -->
+
     <div class="container py-5">
         <div class="row align-items-center">
 
-            <!-- LEFT PART -->
+
             <div class="col-md-6">
                 <h1 class="fw-bold">WEATHER FORECAST</h1>
                 <p>Select a district to see live weather:</p>
@@ -86,7 +86,9 @@
 
                 <div id="warning"></div>
 
-                <!-- WEATHER INFO -->
+
+
+
                 <div id="infoBox" class="info-box w-75">
                     <h4 id="showDistrict"></h4>
                     <h5 id="showTemp"></h5>
@@ -94,7 +96,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE (IMAGE AREA) -->
+
             <div class="col-md-6 position-relative" style="height: 400px;">
                 <img id="sunny" class="weather-img" src="https://cdn-icons-png.flaticon.com/512/3222/3222800.png">
                 <img id="rainy" class="weather-img" src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png">
@@ -104,63 +106,11 @@
         </div>
     </div>
 
-    <!-- JavaScript Weather Logic -->
-    <script>
-        const weatherData = [{
-            district: "Dhaka",
-            temperature: 32,
-            condition: "Sunny"
-        }, {
-            district: "Sylhet",
-            temperature: 27,
-            condition: "Rainy"
-        }, {
-            district: "Khulna",
-            temperature: 30,
-            condition: "Cloudy"
-        }];
 
-        const selectBox = document.getElementById("districtSelect");
-        const infoBox = document.getElementById("infoBox");
-        const warning = document.getElementById("warning");
-
-        const showDistrict = document.getElementById("showDistrict");
-        const showTemp = document.getElementById("showTemp");
-        const showCondition = document.getElementById("showCondition");
-
-        const sunnyImg = document.getElementById("sunny");
-        const rainyImg = document.getElementById("rainy");
-        const cloudyImg = document.getElementById("cloudy");
-
-        selectBox.addEventListener("change", function() {
-            sunnyImg.style.display = "none";
-            rainyImg.style.display = "none";
-            cloudyImg.style.display = "none";
-
-            infoBox.style.display = "none";
-            warning.innerHTML = "";
-
-            let selected = selectBox.value;
-
-            if (selected === "") {
-                warning.innerHTML = "⚠ Please select a district!";
-                return;
-            }
-
-            let info = weatherData.find(w => w.district === selected);
-
-            infoBox.style.display = "block";
-            showDistrict.innerHTML = "District: " + info.district;
-            showTemp.innerHTML = "Temperature: " + info.temperature + "°C";
-            showCondition.innerHTML = "Condition: " + info.condition;
-
-            if (info.condition === "Sunny") sunnyImg.style.display = "block";
-            if (info.condition === "Rainy") rainyImg.style.display = "block";
-            if (info.condition === "Cloudy") cloudyImg.style.display = "block";
-        });
+    <script src="js/script.js">
     </script>
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
